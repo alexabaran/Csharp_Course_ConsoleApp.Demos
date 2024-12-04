@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-// Variable Declarations
+﻿// Variable Declarations
 int choice = 0;
 int num1, num2 = 0;
 
@@ -10,14 +8,7 @@ while (choice != -1)
     try
     {
         // Welcome Message
-        Console.Clear();
-        Console.WriteLine("*** Welcome to the sample calculator! ***");
-        Console.WriteLine("Please select an operation (-1 to exit) ");
-        Console.WriteLine("1. Addition");
-        Console.WriteLine("2. Subtraction");
-        Console.WriteLine("3. Multiplication");
-        Console.WriteLine("4. Division");
-        Console.WriteLine("5. Fibonacci sequence");
+        PrintMenu();
 
         choice = Convert.ToInt32(Console.ReadLine());
 
@@ -32,26 +23,48 @@ while (choice != -1)
         Console.Write("Please enter the second number: ");
         num2 = Convert.ToInt32(Console.ReadLine());
 
+        // Decide which operation is needed based on selected option
+        /*If statements */
+        //if (choice == 1)
+        //{
+        //    /* do addition */
+        //}
+        //else if (choice == 2)
+        //{
+        //    /* subtraction*/
+        //}
+        //else if (choice == 3)
+        //{
+        //    /*Multiplication*/
+        //}
+        //else if (choice == 4)
+        //{
+        //    /*Division*/
+        //}
+        //else
+        //{
+        //    Console.WriteLine("Invalid choice");
+        //}
+        // Prompt for user input
+
+        /* Switch statement */
         int answer = 0;
         switch (choice)
         {
             case 1:
-                answer = num1 + num2;
+                answer = AddNumbers(num1, num2);
                 break;
             case 2:
-                answer = num1 - num2;
+                answer = SubtractNumbers(num1, num2);
                 break;
             case 3:
-                answer = num1 * num2;
+                answer = Product(num1, num2);
                 break;
             case 4:
-                answer = num1 / num2;
+                answer = Quotient(num1, num2);
                 break;
             case 5:
-                for (int i = num1; i <= num2; i++)
-                {
-                    answer += i;
-                }
+                answer = Fibonnaci(num1, num2);
                 break;
             default:
                 throw new Exception("Invalid Menu Item Selected.");
@@ -75,4 +88,47 @@ while (choice != -1)
     }
 }
 
-Console.WriteLine("*** Thank you for using the sample calculator! ***");
+Console.WriteLine("*** - Thank you for using the sample calculator! - ***");
+
+
+// Method Definitions
+int AddNumbers(int num1, int num2)
+{
+    return num1 + num2;
+}
+
+int SubtractNumbers(int num1, int num2)
+{
+    return num1 - num2;
+}
+
+int Product(int num1, int num2)
+{
+    return num1 * num2;
+}
+
+int Quotient(int num1, int num2)
+{
+    return num1 / num2;
+}
+
+int Fibonnaci(int num1, int num2)
+{
+    var answer = 0;
+    for (int i = num1; i <= num2; i++)
+    {
+        answer += i;
+    }
+    return answer;
+}
+void PrintMenu()
+{
+    Console.Clear();
+    Console.WriteLine("*** - Welcome to the sample calculator! - ***");
+    Console.WriteLine("Please select an operation (-1 to exit program) ");
+    Console.WriteLine("1. Addition");
+    Console.WriteLine("2. Subtraction");
+    Console.WriteLine("3. Multiplication");
+    Console.WriteLine("4. Division");
+    Console.WriteLine("5. Fibonacci sequence");
+}

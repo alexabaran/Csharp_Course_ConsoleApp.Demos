@@ -25,7 +25,7 @@ age = DateTime.Now.Year - dob.Year;
 Console.Write("Please enter your salary: ");
 salary = Convert.ToDecimal(Console.ReadLine());
 
-Console.Write("Please enter your gender (M or F): ");
+Console.Write("Please enter  your gender (M or F): ");
 gender = Convert.ToChar(Console.ReadLine());
 
 Console.Write("Are you working? (true or false): ");
